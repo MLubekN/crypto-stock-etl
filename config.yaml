@@ -1,0 +1,11 @@
+assets:
+  crypto:
+    - bitcoin
+    - ethereum
+  stocks:
+    - AAPL
+    - TSLA
+    - MSFT
+settings:
+  currency: usd
+  retry_attempts: 3
