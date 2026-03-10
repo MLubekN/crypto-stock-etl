@@ -4,7 +4,6 @@ import json
 import pandas as pd
 import os
 import shutil
-from datetime import datetime
 from dotenv import load_dotenv
 from src.utils.logger import setup_logging
 from src.extractors.crypto_extractor import CryptoExtractor
@@ -77,6 +76,9 @@ def main():
 
         loader = PostgresLoader()
         loader.execute_sql_file('sql/create_tables.sql')
+
+        print("--- ANALYTICAL VIEWS ---")
+        loader.execute_sql_file('sql/create_views.sql')
         try:
             loader.load_data(final_df, 'raw_assets')
             print("--- ARCHIVING FILES ---")
